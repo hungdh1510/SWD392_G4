@@ -71,7 +71,8 @@
 
 
         <!--/ Body -->        
-        <div class="col-lg-5 col-12 mx-auto " style="padding-top: 20px">      
+        <div class="col-lg-5 col-12 mx-auto " style="padding-top: 20px">    
+            <!-- Side bar -->
             <div class="main-sidebar">                
                 <!-- Single Widget -->
                 <div class="single-widget">                   
@@ -82,7 +83,6 @@
                         <button class="btn" style="margin-right: 10px;" onclick="importFromExcel()">Import from Excel</button>
                         <button class="btn" style="margin-right: 10px;" onclick="exportToExcel()">Export to Excel</button>
                         <button class="btn" style="margin-right: 10px;" onclick="syncToGitLab()">Sync to GitLab</button>
-
                         <script>
                             function openAddIssue() {
                                 window.location.href = "add_issue.jsp";
@@ -146,137 +146,117 @@
                     </div>
                     <!--/ Table -->       
                 </div>
-
-
-
-
-
+                <!--/ End Single Widget -->
             </div>
-            <!--/ End Single Widget -->
+            <!--/ End side bar -->
         </div>
-    </div>
-    <!--/ Body -->    
+        <!--/ Body -->   
 
-    <!-- Footer -->
-    <footer id="footer" class="footer" style="padding-top: 100px">
-        <!-- ... (your footer code) ... -->
-        <div class="copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-12">
-                        <div class="copyright-content">
-                            <p>© Copyright 2023 | All Rights Reserved by <a href="" target="_blank">Group 4 - SWD392</a></p>
+        <!-- Footer -->
+        <footer id="footer" class="footer" style="padding-top: 100px">            
+            <div class="copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-12">
+                            <div class="copyright-content">
+                                <p>© Copyright 2023 | All Rights Reserved by <a href="" target="_blank">Group 4 - SWD392</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!-- Footer -->
+        </footer>
+        <!-- Footer -->
 
-    <script src="CSS+JS/js/jquery.min.js"></script>
-    <script src="CSS+JS/js/jquery-migrate-3.0.0.js"></script>
-    <script src="CSS+JS/js/jquery-ui.min.js"></script>
-    <script src="CSS+JS/js/easing.js"></script>
-    <script src="CSS+JS/js/colors.js"></script>
-    <script src="CSS+JS/js/popper.min.js"></script>
-    <script src="CSS+JS/js/bootstrap-datepicker.js"></script>
-    <script src="CSS+JS/js/jquery.nav.js"></script>
-    <script src="CSS+JS/js/slicknav.min.js"></script>
-    <script src="CSS+JS/js/jquery.scrollUp.min.js"></script>
-    <script src="CSS+JS/js/niceselect.js"></script>
-    <script src="CSS+JS/js/tilt.jquery.min.js"></script>
-    <script src="CSS+JS/js/owl-carousel.js"></script>
-    <script src="CSS+JS/js/jquery.counterup.min.js"></script>
-    <script src="CSS+JS/js/steller.js"></script>
-    <script src="CSS+JS/js/wow.min.js"></script>
-    <script src="CSS+JS/js/jquery.magnific-popup.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
-    <script src="CSS+JS/js/bootstrap.min.js"></script>
-    <script src="CSS+JS/js/main.js"></script>
+        <script src="CSS+JS/js/jquery.min.js"></script>
+        <script src="CSS+JS/js/jquery-migrate-3.0.0.js"></script>
+        <script src="CSS+JS/js/jquery-ui.min.js"></script>
+        <script src="CSS+JS/js/easing.js"></script>
+        <script src="CSS+JS/js/colors.js"></script>
+        <script src="CSS+JS/js/popper.min.js"></script>
+        <script src="CSS+JS/js/bootstrap-datepicker.js"></script>
+        <script src="CSS+JS/js/jquery.nav.js"></script>
+        <script src="CSS+JS/js/slicknav.min.js"></script>
+        <script src="CSS+JS/js/jquery.scrollUp.min.js"></script>
+        <script src="CSS+JS/js/niceselect.js"></script>
+        <script src="CSS+JS/js/tilt.jquery.min.js"></script>
+        <script src="CSS+JS/js/owl-carousel.js"></script>
+        <script src="CSS+JS/js/jquery.counterup.min.js"></script>
+        <script src="CSS+JS/js/steller.js"></script>
+        <script src="CSS+JS/js/wow.min.js"></script>
+        <script src="CSS+JS/js/jquery.magnific-popup.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+        <script src="CSS+JS/js/bootstrap.min.js"></script>
+        <script src="CSS+JS/js/main.js"></script>
 
-    
-    <script>
-                            // Get all the table rows
-                            const tableRows = document.querySelectorAll('table tr');
 
-                            // Set the number of rows to display per page
-                            const rowsPerPage = 10;
+        <script>
+                                // Get all the table rows
+                                const tableRows = document.querySelectorAll('table tr');
 
-                            // Calculate the total number of pages
-                            const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+                                // Set the number of rows to display per page
+                                const rowsPerPage = 10;
 
-                            // Display the table rows for the specified page
-                            function showPage(page) {
-                                const startIndex = (page - 1) * rowsPerPage;
-                                const endIndex = startIndex + rowsPerPage;
+                                // Calculate the total number of pages
+                                const totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
-                                // Hide all table rows
-                                tableRows.forEach((row, index) => {
-                                    if (index >= startIndex && index < endIndex) {
-                                        row.style.display = 'table-row'; // Display the row
-                                    } else {
-                                        row.style.display = 'none'; // Hide the row
-                                    }
-                                });
-                            }
+                                // Display the table rows for the specified page
+                                function showPage(page) {
+                                    const startIndex = (page - 1) * rowsPerPage;
+                                    const endIndex = startIndex + rowsPerPage;
 
-                            // Create pagination links
-                            function createPaginationLinks() {
-                                const pagination = document.createElement('div');
-                                pagination.className = 'pagination';
-
-                                for (let i = 1; i <= totalPages; i++) {
-                                    const link = document.createElement('a');
-                                    link.href = '#';
-                                    link.innerText = i;
-
-                                    // Set the active class for the current page
-                                    if (i === 1) {
-                                        link.className = 'active';
-                                    }
-
-                                    // Add an event listener to each pagination link
-                                    link.addEventListener('click', function () {
-                                        // Remove the active class from all links
-                                        pagination.querySelectorAll('a').forEach((a) => {
-                                            a.classList.remove('active');
-                                        });
-
-                                        // Set the active class for the clicked link
-                                        this.classList.add('active');
-
-                                        // Show the corresponding page
-                                        showPage(i);
+                                    // Hide all table rows
+                                    tableRows.forEach((row, index) => {
+                                        if (index >= startIndex && index < endIndex) {
+                                            row.style.display = 'table-row'; // Display the row
+                                        } else {
+                                            row.style.display = 'none'; // Hide the row
+                                        }
                                     });
-
-                                    pagination.appendChild(link);
                                 }
 
-                                return pagination;
-                            }
+                                // Create pagination links
+                                function createPaginationLinks() {
+                                    const pagination = document.createElement('div');
+                                    pagination.className = 'pagination';
 
-                            // Show the first page initially
-                            showPage(1);
+                                    for (let i = 1; i <= totalPages; i++) {
+                                        const link = document.createElement('a');
+                                        link.href = '#';
+                                        link.innerText = i;
 
-                            // Create pagination links and append them to the document
-                            const paginationContainer = document.querySelector('.site-content');
-                            const paginationLinks = createPaginationLinks();
-                            paginationContainer.appendChild(paginationLinks);
-    </script>
-    <!--  CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS+JS/css/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS+JS/css/nice-select.css">
-    <link rel="stylesheet" href="CSS+JS/css/font-awesome.min.css">
-    <link rel="stylesheet" href="CSS+JS/css/icofont.css">
-    <link rel="stylesheet" href="CSS+JS/css/slicknav.min.css">
-    <link rel="stylesheet" href="CSS+JS/css/owl-carousel.css">
-    <link rel="stylesheet" href="CSS+JS/css/datepicker.css">
-    <link rel="stylesheet" href="CSS+JS/css/animate.min.css">
-    <link rel="stylesheet" href="CSS+JS/css/magnific-popup.css">      
-    <link rel="stylesheet" href="CSS+JS/css/normalize.css">
-    <link rel="stylesheet" href="CSS+JS/css/style.css">
-    <link rel="stylesheet" href="CSS+JS/css/responsive.css">   
-</body>
+                                        // Set the active class for the current page
+                                        if (i === 1) {
+                                            link.className = 'active';
+                                        }
+
+                                        // Add an event listener to each pagination link
+                                        link.addEventListener('click', function () {
+                                            // Remove the active class from all links
+                                            pagination.querySelectorAll('a').forEach((a) => {
+                                                a.classList.remove('active');
+                                            });
+
+                                            // Set the active class for the clicked link
+                                            this.classList.add('active');
+
+                                            // Show the corresponding page
+                                            showPage(i);
+                                        });
+
+                                        pagination.appendChild(link);
+                                    }
+
+                                    return pagination;
+                                }
+
+                                // Show the first page initially
+                                showPage(1);
+
+                                // Create pagination links and append them to the document
+                                const paginationContainer = document.querySelector('.site-content');
+                                const paginationLinks = createPaginationLinks();
+                                paginationContainer.appendChild(paginationLinks);
+        </script>      
+    </body>
 </html>
