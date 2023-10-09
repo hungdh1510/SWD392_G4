@@ -85,10 +85,10 @@
                         </div>
                     </div>
                     <div class="row" style="padding-top: 30px">
-                        <div class="col-lg-6 col-12"  id="viewUserDashboard">
+                        <div class="col-lg-6 col-12"  id="viewIssueTrackingDashboard">
                             <div class="single-info">
                                 <div class="content">
-                                    <h3>View User Dashboard</h3>
+                                    <h3>View Issue Tracking Dashboard</h3>
                                     <p>Show statistics of the project requirements, Q&A, Tasks, Defects, and other Project Issues.</p>
                                 </div>
                             </div>
@@ -111,8 +111,35 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
+                    <script>
+                        document.getElementById("resetPassword").onclick = function () {
+                            // Redirect to the Reset Password 
+                            window.location.href = "common_feature/reset_password.html";
+                        };
+
+                        document.getElementById("viewUserProfile").onclick = function () {
+                            // Redirect to the View User Profile 
+                            window.location.href = "common_feature/view_user_profile.html";
+                        };
+
+                        document.getElementById("viewIssueTrackingDashboard").onclick = function () {
+                            // Redirect to the View Issue Tracking Dashboard 
+                            window.location.href = "common_feature/view_issue_tracking_dashboard.html";
+                        };
+
+                        document.getElementById("viewProjectDashboard").onclick = function () {
+                            // Redirect to the View Project Dashboard 
+                            window.location.href = "common_feature/view_project_dashboard.html";
+                        };
+
+                        document.getElementById("manageProjectIssue").onclick = function () {
+                            // Redirect to the Manage Project Issue 
+                            window.location.href = "view_issue.jsp";
+                        };
+                    </script>
+
                 </div>
             </div>
         </section>
@@ -135,30 +162,6 @@
         </footer>
 
         <!-- Add JavaScript to handle onclick actions -->
-        <script>
-            document.getElementById("resetPassword").onclick = function () {
-                // Redirect to the Reset Password 
-                window.location.href = "common_feature/reset_password.html";
-            };
 
-            document.getElementById("viewUserProfile").onclick = function () {
-                // Redirect to the View User Profile 
-                window.location.href = "common_feature/view_user_profile.html";
-            };
-
-            document.getElementById("viewUserDashboard").onclick = function () {
-                // Redirect to the View User Dashboard 
-                window.location.href = "common_feature/view_user_dashboard.html";
-            };
-
-            document.getElementById("viewProjectDashboard").onclick = function () {
-                // Redirect to the View Project Dashboard 
-                window.location.href = "common_feature/view_project_dashboard.html";
-            };
-
-            document.getElementById("manageProjectIssue").onclick = function () {
-                // Redirect to the Manage Project Issue 
-                window.location.href = "view_issue.jsp";             };
-        </script>   
     </body>
 </html>
