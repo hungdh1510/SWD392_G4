@@ -85,7 +85,7 @@
                         <button class="btn" style="margin-right: 10px;" onclick="syncToGitLab()">Sync to GitLab</button>
                         <script>
                             function openAddIssue() {
-                                window.location.href = "add_issue.jsp";
+                                window.location.href = "issue_add_issue.jsp";
                             }
 
                             function importFromExcel() {
@@ -136,9 +136,9 @@
                                     <td><%= issue.getUpdatedDate()%></td>
                                     <td>
                                        
-                                       <a href="edit_issue.jsp?issueId=<%= issue.getIssueId() %>&projectID=<%= issue.getProjectId() %>&createdBy=<%= issue.getCreatedBy() %>" class="action-button1">Edit</a>
+                                       <a href="issue_edit_issue.jsp?issueId=<%= issue.getIssueId() %>&projectID=<%= issue.getProjectId() %>&createdBy=<%= issue.getCreatedBy() %>" class="action-button1">Edit</a>
 
-                                       <a href="view_issue_detail.jsp?issueId=<%= issue.getIssueId()%>" class="action-button2">View</a>
+                                       <a href="issue_view_issue_detail.jsp?issueId=<%= issue.getIssueId()%>" class="action-button2">View</a>
                 
                                     </td>
                                     <!-- Add other table data as needed -->
