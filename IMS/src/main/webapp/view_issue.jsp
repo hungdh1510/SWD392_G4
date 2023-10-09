@@ -31,7 +31,7 @@
 
     <body>
         <!-- Header Area -->
-        <header class="header" st>           
+        <header class="header" st style="padding-bottom: 30px;">           
             <div class="header-inner">
                 <div class="container">
                     <div class="inner">
@@ -71,7 +71,7 @@
 
 
         <!--/ Body -->        
-        <div class="col-lg-5 col-12 mx-auto " style="padding-top: 20px">    
+        <div class="col-lg-5 col-12 mx-auto " >    
             <!-- Side bar -->
             <div class="main-sidebar">                
                 <!-- Single Widget -->
@@ -135,8 +135,11 @@
                                     <td><%= issue.getCreatedDate()%></td>
                                     <td><%= issue.getUpdatedDate()%></td>
                                     <td>
-                                        <button class="action-button1">Edit</button>
-                                        <button class="action-button2">View</button>
+                                       
+                                       <a href="edit_issue.jsp?issueId=<%= issue.getIssueId() %>&projectID=<%= issue.getProjectId() %>&createdBy=<%= issue.getCreatedBy() %>" class="action-button1">Edit</a>
+
+                                       <a href="view_issue_detail.jsp?issueId=<%= issue.getIssueId()%>" class="action-button2">View</a>
+                
                                     </td>
                                     <!-- Add other table data as needed -->
                                 </tr>
@@ -188,8 +191,6 @@
         <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
         <script src="CSS+JS/js/bootstrap.min.js"></script>
         <script src="CSS+JS/js/main.js"></script>
-
-
         <script>
                                 // Get all the table rows
                                 const tableRows = document.querySelectorAll('table tr');

@@ -7,6 +7,7 @@ import java.util.List;
 import model.Issue;
 
 public class IssueDAO {
+
     private DBContext dbContext;
 
     public IssueDAO() {
@@ -16,9 +17,7 @@ public class IssueDAO {
     public List<Issue> getAllIssues() {
         List<Issue> issues = new ArrayList<>();
 
-        try (Connection connection = dbContext.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery("SELECT * FROM Issues")) {
+        try (Connection connection = dbContext.getConnection(); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery("SELECT * FROM Issues")) {
 
             while (resultSet.next()) {
                 Issue issue = extractIssueFromResultSet(resultSet);
@@ -34,8 +33,7 @@ public class IssueDAO {
     public Issue getIssueById(int issueId) {
         Issue issue = null;
 
-        try (Connection connection = dbContext.getConnection();
-             PreparedStatement statement = connection.prepareStatement("SELECT * FROM Issues WHERE issue_id = ?")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM Issues WHERE issue_id = ?")) {
 
             statement.setInt(1, issueId);
             ResultSet resultSet = statement.executeQuery();
@@ -54,11 +52,10 @@ public class IssueDAO {
     public boolean addIssue(Issue issue) {
         boolean success = false;
 
-        try (Connection connection = dbContext.getConnection();
-             PreparedStatement statement = connection.prepareStatement(
-                     "INSERT INTO Issues (project_id, issue_type, issue_status, issue_description, " +
-                             "created_by, created_date, updated_by, updated_date) " +
-                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement(
+                "INSERT INTO Issues (project_id, issue_type, issue_status, issue_description, "
+                + "created_by, created_date, updated_by, updated_date) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
 
             statement.setInt(1, issue.getProjectId());
             statement.setString(2, issue.getIssueType());
@@ -79,40 +76,34 @@ public class IssueDAO {
         return success;
     }
 
-    public boolean updateIssue(Issue issue) {
-        boolean success = false;
+   public boolean updateIssue(int issueId, String issueType, String issueStatus, String issueDescription, int updatedBy) {
+    boolean success = false;
 
-        try (Connection connection = dbContext.getConnection();
-             PreparedStatement statement = connection.prepareStatement(
-                     "UPDATE Issues SET project_id = ?, issue_type = ?, issue_status = ?, " +
-                             "issue_description = ?, created_by = ?, created_date = ?, " +
-                             "updated_by = ?, updated_date = ? WHERE issue_id = ?")) {
+    try (Connection connection = dbContext.getConnection();
+         PreparedStatement statement = connection.prepareStatement(
+             "UPDATE Issues SET issue_type = ?, issue_status = ?, issue_description = ?, updated_by = ?, updated_date = CURRENT_TIMESTAMP WHERE issue_id = ?")) {
 
-            statement.setInt(1, issue.getProjectId());
-            statement.setString(2, issue.getIssueType());
-            statement.setString(3, issue.getIssueStatus());
-            statement.setString(4, issue.getIssueDescription());
-            statement.setInt(5, issue.getCreatedBy());
-            statement.setTimestamp(6, Timestamp.valueOf(issue.getCreatedDate()));
-            statement.setInt(7, issue.getUpdatedBy());
-            statement.setTimestamp(8, Timestamp.valueOf(issue.getUpdatedDate()));
-            statement.setInt(9, issue.getIssueId());
+        statement.setString(1, issueType);
+        statement.setString(2, issueStatus);
+        statement.setString(3, issueDescription);
+        statement.setInt(4, updatedBy);
+        statement.setInt(5, issueId);
 
-            int rowsAffected = statement.executeUpdate();
-            success = rowsAffected > 0;
+        int rowsAffected = statement.executeUpdate();
+        success = rowsAffected > 0;
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return success;
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+
+    return success;
+}
+
 
     public boolean deleteIssue(int issueId) {
         boolean success = false;
 
-        try (Connection connection = dbContext.getConnection();
-             PreparedStatement statement = connection.prepareStatement("DELETE FROM Issues WHERE issue_id = ?")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("DELETE FROM Issues WHERE issue_id = ?")) {
 
             statement.setInt(1, issueId);
 

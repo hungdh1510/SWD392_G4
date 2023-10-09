@@ -1,44 +1,33 @@
-
 package test;
 
 import dao.IssueDAO;
-import java.time.LocalDateTime;
-import model.Issue;
 
-/**
- *
- * @author trung
- */
 public class test {
-    
+
     public static void main(String[] args) {
-        // Retrieve the form data from the request
-  int projectID = 1;
-  String issueType = "Bug";
-  String issueStatus = "Open";
-  String issueDescription = "I dont know";
-  int createdBy = 1;
-  // Create a new Issue object with the form data
-    Issue issue = new Issue();
-    issue.setProjectId(projectID);
-    issue.setIssueType(issueType);
-    issue.setIssueStatus(issueStatus);
-    issue.setIssueDescription(issueDescription);
-    issue.setCreatedBy(createdBy);
-    issue.setCreatedDate(LocalDateTime.now());
-    issue.setUpdatedBy(createdBy);
-    issue.setUpdatedDate(LocalDateTime.now());
+        // Define the values you want to update
+        int issueIdToUpdate = 21;
+        String updatedIssueType = "Test";
+        String updatedIssueStatus = "Test";
+        String updatedIssueDescription = "Test";
+        int updatedBy = 1;
 
-  // Save the issue to the database using the DAO
-  IssueDAO issueDAO = new IssueDAO(); // Instantiate your IssueDAO class
-  boolean success = issueDAO.addIssue(issue);
+        // Create an IssueDAO instance
+        IssueDAO issueDAO = new IssueDAO();
 
-  if (success) {
-    // Redirect the user to a success page or display a success message
-      System.out.println("Succes");
-  } else {
-    // Redirect the user to an error page or display an error message
-      System.out.println("Error");
-  }
+        // Update the issue
+        boolean success = issueDAO.updateIssue(
+                issueIdToUpdate,
+                updatedIssueType,
+                updatedIssueStatus,
+                updatedIssueDescription,
+                updatedBy
+        );
+
+        if (success) {
+            System.out.println("Issue updated successfully.");
+        } else {
+            System.out.println("Error updating the issue.");
+        }
     }
 }
