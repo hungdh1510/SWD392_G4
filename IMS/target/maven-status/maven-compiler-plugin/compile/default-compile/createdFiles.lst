@@ -9,6 +9,7 @@ model\Issue.class
 dao\DBContext.class
 model\ClassMilestone.class
 model\Project.class
+servlet\viewServlet.class
 model\Milestone.class
 test\test.class
 model\IssueLink.class

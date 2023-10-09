@@ -113,39 +113,45 @@
                                     <th>Issue Status</th>
                                     <th>Issue Description</th>
                                     <th>Created Date</th>
-                                    <th>Updated Date</th>  
-                                    <th>Action</th>  
-
-                                    <!-- Add other table headers as needed -->
+                                    <th>Updated Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <%-- Iterate through the issues and print table rows --%>
                                 <%
+                                    // Assuming you have a variable 'user_id' that holds the user's ID
+                                    Integer user_id = (Integer) session.getAttribute("user_id");
+                                    if (user_id != null) {
+                                        // Use user_id as needed
+                                        out.println("User ID: " + user_id);
+                                    } else {
+                                        // Handle the case where user_id is not set in the session
+                                        out.println("User ID not found.");
+                                    }
                                     IssueDAO issueDAO = new IssueDAO();
-                                    // Retrieve all issues from the database using the DAO
-                                    List<Issue> issues = issueDAO.getAllIssues();
-                                    for (Issue issue : issues) {%>
+                                    // Retrieve issues for the specific user from the database using the DAO
+                                    List<Issue> issues = issueDAO.getIssuesByUserId(user_id);
+                                    for (Issue issue : issues) {
+                                %>
                                 <tr>
-                                    <td><%= issue.getIssueId()%></td>
-                                    <td><%= issue.getProjectId()%></td>
-                                    <td><%= issue.getIssueType()%></td>
-                                    <td><%= issue.getIssueStatus()%></td>
-                                    <td><%= issue.getIssueDescription()%></td>
-                                    <td><%= issue.getCreatedDate()%></td>
-                                    <td><%= issue.getUpdatedDate()%></td>
+                                    <td><%= issue.getIssueId() %></td>
+                                    <td><%= issue.getProjectId() %></td>
+                                    <td><%= issue.getIssueType() %></td>
+                                    <td><%= issue.getIssueStatus() %></td>
+                                    <td><%= issue.getIssueDescription() %></td>
+                                    <td><%= issue.getCreatedDate() %></td>
+                                    <td><%= issue.getUpdatedDate() %></td>
                                     <td>
-                                       
-                                       <a href="issue_edit_issue.jsp?issueId=<%= issue.getIssueId() %>&projectID=<%= issue.getProjectId() %>&createdBy=<%= issue.getCreatedBy() %>" class="action-button1">Edit</a>
-
-                                       <a href="issue_view_issue_detail.jsp?issueId=<%= issue.getIssueId()%>" class="action-button2">View</a>
-                
+                                        <a href="issue_edit_issue.jsp?issueId=<%= issue.getIssueId() %>&projectID=<%= issue.getProjectId() %>&createdBy=<%= issue.getCreatedBy() %>" class="action-button1">Edit</a>
+                                        <a href="issue_view_issue_detail.jsp?issueId=<%= issue.getIssueId() %>" class="action-button2">View</a>
                                     </td>
-                                    <!-- Add other table data as needed -->
                                 </tr>
-                                <% }%>
+                                <%
+                                    }
+                                %>
                             </tbody>
                         </table>
+
                     </div>
                     <!--/ Table -->       
                 </div>
@@ -192,72 +198,72 @@
         <script src="CSS+JS/js/bootstrap.min.js"></script>
         <script src="CSS+JS/js/main.js"></script>
         <script>
-                                // Get all the table rows
-                                const tableRows = document.querySelectorAll('table tr');
+                            // Get all the table rows
+                            const tableRows = document.querySelectorAll('table tr');
 
-                                // Set the number of rows to display per page
-                                const rowsPerPage = 10;
+                            // Set the number of rows to display per page
+                            const rowsPerPage = 10;
 
-                                // Calculate the total number of pages
-                                const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+                            // Calculate the total number of pages
+                            const totalPages = Math.ceil(tableRows.length / rowsPerPage);
 
-                                // Display the table rows for the specified page
-                                function showPage(page) {
-                                    const startIndex = (page - 1) * rowsPerPage;
-                                    const endIndex = startIndex + rowsPerPage;
+                            // Display the table rows for the specified page
+                            function showPage(page) {
+                                const startIndex = (page - 1) * rowsPerPage;
+                                const endIndex = startIndex + rowsPerPage;
 
-                                    // Hide all table rows
-                                    tableRows.forEach((row, index) => {
-                                        if (index >= startIndex && index < endIndex) {
-                                            row.style.display = 'table-row'; // Display the row
-                                        } else {
-                                            row.style.display = 'none'; // Hide the row
-                                        }
-                                    });
-                                }
+                                // Hide all table rows
+                                tableRows.forEach((row, index) => {
+                                    if (index >= startIndex && index < endIndex) {
+                                        row.style.display = 'table-row'; // Display the row
+                                    } else {
+                                        row.style.display = 'none'; // Hide the row
+                                    }
+                                });
+                            }
 
-                                // Create pagination links
-                                function createPaginationLinks() {
-                                    const pagination = document.createElement('div');
-                                    pagination.className = 'pagination';
+                            // Create pagination links
+                            function createPaginationLinks() {
+                                const pagination = document.createElement('div');
+                                pagination.className = 'pagination';
 
-                                    for (let i = 1; i <= totalPages; i++) {
-                                        const link = document.createElement('a');
-                                        link.href = '#';
-                                        link.innerText = i;
+                                for (let i = 1; i <= totalPages; i++) {
+                                    const link = document.createElement('a');
+                                    link.href = '#';
+                                    link.innerText = i;
 
-                                        // Set the active class for the current page
-                                        if (i === 1) {
-                                            link.className = 'active';
-                                        }
-
-                                        // Add an event listener to each pagination link
-                                        link.addEventListener('click', function () {
-                                            // Remove the active class from all links
-                                            pagination.querySelectorAll('a').forEach((a) => {
-                                                a.classList.remove('active');
-                                            });
-
-                                            // Set the active class for the clicked link
-                                            this.classList.add('active');
-
-                                            // Show the corresponding page
-                                            showPage(i);
-                                        });
-
-                                        pagination.appendChild(link);
+                                    // Set the active class for the current page
+                                    if (i === 1) {
+                                        link.className = 'active';
                                     }
 
-                                    return pagination;
+                                    // Add an event listener to each pagination link
+                                    link.addEventListener('click', function () {
+                                        // Remove the active class from all links
+                                        pagination.querySelectorAll('a').forEach((a) => {
+                                            a.classList.remove('active');
+                                        });
+
+                                        // Set the active class for the clicked link
+                                        this.classList.add('active');
+
+                                        // Show the corresponding page
+                                        showPage(i);
+                                    });
+
+                                    pagination.appendChild(link);
                                 }
 
-                                // Show the first page initially
-                                showPage(1);
+                                return pagination;
+                            }
 
-                                // Create pagination links and append them to the document
-                                const paginationContainer = document.querySelector('.site-content');
-                                const paginationLinks = createPaginationLinks();
-                                paginationContainer.appendChild(paginationLinks);
+                            // Show the first page initially
+                            showPage(1);
+
+                            // Create pagination links and append them to the document
+                            const paginationContainer = document.querySelector('.site-content');
+                            const paginationLinks = createPaginationLinks();
+                            paginationContainer.appendChild(paginationLinks);
         </script>      
     </body>
 </html>
