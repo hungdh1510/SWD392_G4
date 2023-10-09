@@ -1,4 +1,15 @@
+model\ProjectMember.class
+model\SubjectAssignment.class
+model\SystemSetting.class
+model\Subject.class
 dao\IssueDAO.class
-test\test.class
+model\Class.class
+model\ClassMember.class
 model\Issue.class
 dao\DBContext.class
+model\ClassMilestone.class
+model\Project.class
+model\Milestone.class
+test\test.class
+model\IssueLink.class
+model\User.class
