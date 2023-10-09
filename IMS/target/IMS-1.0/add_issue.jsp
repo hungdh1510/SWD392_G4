@@ -10,7 +10,9 @@
         <!-- Meta Tags -->
         <meta charset="utf-8">
         <!-- Title -->
-        <title>Issue Management System</title>       
+        <title>Issue Management System</title>  
+        
+        <link rel="stylesheet" href="CSS+JS/css/customcss.css">
 
     </head>
 
