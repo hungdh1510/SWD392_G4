@@ -68,6 +68,26 @@
         <servlet-name>AboutUsServlet</servlet-name>
         <servlet-class>controller.AboutUsServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageClassServlet</servlet-name>
+        <servlet-class>controller.ManageClassServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageProjectServlet</servlet-name>
+        <servlet-class>controller.ManageProjectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageSubjectServlet</servlet-name>
+        <servlet-class>controller.ManageSubjectServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <servlet-class>controller.ManageUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManageSystemServlet</servlet-name>
+        <servlet-class>controller.ManageSystemServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -135,6 +155,26 @@
     <servlet-mapping>
         <servlet-name>AboutUsServlet</servlet-name>
         <url-pattern>/about-us</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageClassServlet</servlet-name>
+        <url-pattern>/manage-class</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageProjectServlet</servlet-name>
+        <url-pattern>/manage-project</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageSubjectServlet</servlet-name>
+        <url-pattern>/manage-subject</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageUserServlet</servlet-name>
+        <url-pattern>/manage-user</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageSystemServlet</servlet-name>
+        <url-pattern>/manage-system</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
