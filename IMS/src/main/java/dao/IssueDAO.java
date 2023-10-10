@@ -76,29 +76,27 @@ public class IssueDAO {
         return success;
     }
 
-   public boolean updateIssue(int issueId, String issueType, String issueStatus, String issueDescription, int updatedBy) {
-    boolean success = false;
+    public boolean updateIssue(int issueId, String issueType, String issueStatus, String issueDescription, int updatedBy) {
+        boolean success = false;
 
-    try (Connection connection = dbContext.getConnection();
-         PreparedStatement statement = connection.prepareStatement(
-             "UPDATE Issues SET issue_type = ?, issue_status = ?, issue_description = ?, updated_by = ?, updated_date = CURRENT_TIMESTAMP WHERE issue_id = ?")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement(
+                "UPDATE Issues SET issue_type = ?, issue_status = ?, issue_description = ?, updated_by = ?, updated_date = CURRENT_TIMESTAMP WHERE issue_id = ?")) {
 
-        statement.setString(1, issueType);
-        statement.setString(2, issueStatus);
-        statement.setString(3, issueDescription);
-        statement.setInt(4, updatedBy);
-        statement.setInt(5, issueId);
+            statement.setString(1, issueType);
+            statement.setString(2, issueStatus);
+            statement.setString(3, issueDescription);
+            statement.setInt(4, updatedBy);
+            statement.setInt(5, issueId);
 
-        int rowsAffected = statement.executeUpdate();
-        success = rowsAffected > 0;
+            int rowsAffected = statement.executeUpdate();
+            success = rowsAffected > 0;
 
-    } catch (SQLException e) {
-        e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return success;
     }
-
-    return success;
-}
-
 
     public boolean deleteIssue(int issueId) {
         boolean success = false;
@@ -131,4 +129,30 @@ public class IssueDAO {
         return new Issue(issueId, projectId, issueType, issueStatus, issueDescription,
                 createdBy, createdDate, updatedBy, updatedDate);
     }
+
+    public List<Issue> getIssuesByUserId(int userId) {
+        List<Issue> issues = new ArrayList<>();
+
+        String sql = "SELECT i.issue_id, i.project_id, i.issue_type, i.issue_status, i.issue_description, "
+                + "i.created_by, i.created_date, i.updated_by, i.updated_date "
+                + "FROM Issues AS i "
+                + "INNER JOIN ProjectMembers AS pm ON i.project_id = pm.project_id "
+                + "WHERE pm.user_id = ?";
+
+        try (Connection connection = dbContext.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Issue issue = extractIssueFromResultSet(resultSet);
+                issues.add(issue);
+            }
+        } catch (SQLException e) {
+            // Handle any SQL exceptions here
+            e.printStackTrace();
+        }
+
+        return issues;
+    }
+
 }
