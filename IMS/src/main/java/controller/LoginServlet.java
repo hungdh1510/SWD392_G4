@@ -4,24 +4,29 @@
  */
 package controller;
 
+import dao.UserDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import model.User;
 
 /**
  *
  * @author trung
  */
 public class LoginServlet extends HttpServlet {
+
+    private UserDAO userDAO; // Initialize the UserDAO
+
+    @Override
+    public void init() throws ServletException {
+        // Initialize the UserDAO in the servlet's init() method
+        userDAO = new UserDAO();
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,64 +39,38 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        // Initialize database connection variables
-        String jdbcUrl = "jdbc:mysql://localhost:3306/issue_management_system";
-        String dbUser = "root";
-        String dbPassword = "123456";
+        // Use the UserDAO to check if the login is successful
+        User user = userDAO.login(email, password);
 
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+        if (user != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user); // Store the logged-in user in the session
 
-            Connection connection = DriverManager.getConnection(jdbcUrl, dbUser, dbPassword);
-
-            String query = "SELECT user_id, user_role FROM Users WHERE email = ? AND password = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2, password);
-
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                int userId = resultSet.getInt("user_id");
-                String userRole = resultSet.getString("user_role");
-
-                HttpSession session = request.getSession();
-                session.setAttribute("user_id", userId);
-                session.setAttribute("user_role", userRole);
-
-                // Redirect based on user role
-                if ("Student".equals(userRole)) {
-                    response.sendRedirect(request.getContextPath() + "/student");
-                } else if ("Teacher".equals(userRole)) {
-                    response.sendRedirect(request.getContextPath() + "/teacher");
-                } else if ("Manager".equals(userRole)) {
-                    response.sendRedirect(request.getContextPath() + "/manager");
-                } else if ("Admin".equals(userRole)) {
-                    response.sendRedirect(request.getContextPath() + "/admin");
-                } else {
-                    request.setAttribute("error", "Unknown user role: " + userRole);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("common/login.jsp");
-                    dispatcher.forward(request, response);
-                }
+            // Redirect based on user role
+            String userRole = user.getUserRole();
+            if ("Student".equals(userRole)) {
+                response.sendRedirect(request.getContextPath() + "/student");
+            } else if ("Teacher".equals(userRole)) {
+                response.sendRedirect(request.getContextPath() + "/teacher");
+            } else if ("Manager".equals(userRole)) {
+                response.sendRedirect(request.getContextPath() + "/manager");
+            } else if ("Admin".equals(userRole)) {
+                response.sendRedirect(request.getContextPath() + "/admin");
             } else {
-                request.setAttribute("error", "Login failed. Incorrect email or password.");
+                request.setAttribute("error", "Unknown user role: " + userRole);
                 RequestDispatcher dispatcher = request.getRequestDispatcher("common/login.jsp");
                 dispatcher.forward(request, response);
             }
-
-            resultSet.close();
-            preparedStatement.close();
-            connection.close();
-        } catch (Exception e) {
-            request.setAttribute("error", "An error occurred: " + e.getMessage());
+        } else {
+            request.setAttribute("error", "Login failed. Incorrect email or password.");
             RequestDispatcher dispatcher = request.getRequestDispatcher("common/login.jsp");
             dispatcher.forward(request, response);
         }
-    
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

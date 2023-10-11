@@ -17,7 +17,7 @@ public class IssueDAO {
     public List<Issue> getAllIssues() {
         List<Issue> issues = new ArrayList<>();
 
-        try (Connection connection = dbContext.getConnection(); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery("SELECT * FROM Issues")) {
+        try (Connection connection = dbContext.getConnection(); Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery("SELECT * FROM Issue")) {
 
             while (resultSet.next()) {
                 Issue issue = extractIssueFromResultSet(resultSet);
@@ -33,7 +33,7 @@ public class IssueDAO {
     public Issue getIssueById(int issueId) {
         Issue issue = null;
 
-        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM Issues WHERE issue_id = ?")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("SELECT * FROM Issue WHERE issue_id = ?")) {
 
             statement.setInt(1, issueId);
             ResultSet resultSet = statement.executeQuery();
@@ -53,7 +53,7 @@ public class IssueDAO {
         boolean success = false;
 
         try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement(
-                "INSERT INTO Issues (project_id, issue_type, issue_status, issue_description, "
+                "INSERT INTO Issue (project_id, issue_type, issue_status, issue_description, "
                 + "created_by, created_date, updated_by, updated_date) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
 
@@ -80,7 +80,7 @@ public class IssueDAO {
         boolean success = false;
 
         try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement(
-                "UPDATE Issues SET issue_type = ?, issue_status = ?, issue_description = ?, updated_by = ?, updated_date = CURRENT_TIMESTAMP WHERE issue_id = ?")) {
+                "UPDATE Issue SET issue_type = ?, issue_status = ?, issue_description = ?, updated_by = ?, updated_date = CURRENT_TIMESTAMP WHERE issue_id = ?")) {
 
             statement.setString(1, issueType);
             statement.setString(2, issueStatus);
@@ -101,7 +101,7 @@ public class IssueDAO {
     public boolean deleteIssue(int issueId) {
         boolean success = false;
 
-        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("DELETE FROM Issues WHERE issue_id = ?")) {
+        try (Connection connection = dbContext.getConnection(); PreparedStatement statement = connection.prepareStatement("DELETE FROM Issue WHERE issue_id = ?")) {
 
             statement.setInt(1, issueId);
 
@@ -135,8 +135,8 @@ public class IssueDAO {
 
         String sql = "SELECT i.issue_id, i.project_id, i.issue_type, i.issue_status, i.issue_description, "
                 + "i.created_by, i.created_date, i.updated_by, i.updated_date "
-                + "FROM Issues AS i "
-                + "INNER JOIN ProjectMembers AS pm ON i.project_id = pm.project_id "
+                + "FROM Issue AS i "
+                + "INNER JOIN ProjectMember AS pm ON i.project_id = pm.project_id "
                 + "WHERE pm.user_id = ?";
 
         try (Connection connection = dbContext.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {

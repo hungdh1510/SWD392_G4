@@ -119,18 +119,10 @@
                             </thead>
                             <tbody>
                                 <%
-                                    // Assuming you have a variable 'user_id' that holds the user's ID
-                                    Integer user_id = (Integer) session.getAttribute("user_id");
-                                    if (user_id != null) {
-                                        // Use user_id as needed
-                                        out.println("User ID: " + user_id);
-                                    } else {
-                                        // Handle the case where user_id is not set in the session
-                                        out.println("User ID not found.");
-                                    }
+                                   
                                     IssueDAO issueDAO = new IssueDAO();
                                     // Retrieve issues for the specific user from the database using the DAO
-                                    List<Issue> issues = issueDAO.getIssuesByUserId(user_id);
+                                    List<Issue> issues = issueDAO.getAllIssues();
                                     for (Issue issue : issues) {
                                 %>
                                 <tr>
