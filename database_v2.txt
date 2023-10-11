@@ -117,11 +117,11 @@ VALUES
  ('manager', 'manager@manager.manager', '88888888', '88888888', 'avatar1.jpg', 'ABC123', 1, 'Manager'),
  ('teacher', 'teacher@teacher.teacher', '7777777', '7777777', 'avatar1.jpg', 'ABC123', 1, 'Teacher'),
  ('student', 'student@student.student', '666666', '666666', 'avatar1.jpg', 'ABC123', 1, 'Student'),
-    ('John Doe', 'john@example.com', '1234567890', 'password1', 'avatar1.jpg', 'verification_code1', 1, 'User'),
-    ('Jane Smith', 'jane@example.com', '9876543210', 'password2', 'avatar2.jpg', 'verification_code2', 1, 'User'),
-    ('Alice Johnson', 'alice@example.com', '5551234567', 'password3', 'avatar3.jpg', 'verification_code3', 1, 'User'),
-    ('Bob Wilson', 'bob@example.com', '4567890123', 'password4', 'avatar4.jpg', 'verification_code4', 1, 'Admin'),
-    ('Eve White', 'eve@example.com', '7890123456', 'password5', 'avatar5.jpg', 'verification_code5', 0, 'User');
+    ('John Doe', 'john@example.com', '1234567890', 'password1', 'avatar1.jpg', 'verification_code1', 1, 'Student'),
+    ('Jane Smith', 'jane@example.com', '9876543210', 'password2', 'avatar2.jpg', 'verification_code2', 1, 'Student'),
+    ('Alice Johnson', 'alice@example.com', '5551234567', 'password3', 'avatar3.jpg', 'verification_code3', 1, 'Student'),
+    ('Bob Wilson', 'bob@example.com', '4567890123', 'password4', 'avatar4.jpg', 'verification_code4', 1, 'Student'),
+    ('Eve White', 'eve@example.com', '7890123456', 'password5', 'avatar5.jpg', 'verification_code5', 0, 'Student');
 
  
 
