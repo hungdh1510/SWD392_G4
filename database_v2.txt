@@ -1,5 +1,5 @@
 -- Create the database
-CREATE DATABASE issue_management_system;
+CREATE DATABASE issue_management_system_v2;
 
 -- Switch to the newly created database
 USE issue_management_system;
