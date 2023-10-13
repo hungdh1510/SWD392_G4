@@ -50,6 +50,16 @@ CREATE TABLE Issue (
     FOREIGN KEY (updated_by) REFERENCES User(user_id)
 );
 
+-- Create the IssueSetting table
+CREATE TABLE IssueSetting (
+    setting_id INT PRIMARY KEY AUTO_INCREMENT,
+    issue_id INT,
+    setting_name VARCHAR(255),
+    setting_value TEXT,
+    FOREIGN KEY (issue_id) REFERENCES Issue(issue_id)
+);
+
+
 -- Create the Milestone table
 CREATE TABLE Milestone (
     milestone_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -176,6 +186,27 @@ VALUES
     (3, 'Task', 'Open', 'Description of Issue 4', 4, 4),
     (4, 'Feature', 'In Progress', 'Description of Issue 5', 1, 1);
 
+
+
+-- Insert the first record
+INSERT INTO IssueSetting (issue_id, setting_name, setting_value)
+VALUES (1, 'Setting 1', 'Value 1');
+
+-- Insert the second record
+INSERT INTO IssueSetting (issue_id, setting_name, setting_value)
+VALUES (2, 'Setting 2', 'Value 2');
+
+-- Insert the third record
+INSERT INTO IssueSetting (issue_id, setting_name, setting_value)
+VALUES (3, 'Setting 3', 'Value 3');
+
+-- Insert the fourth record
+INSERT INTO IssueSetting (issue_id, setting_name, setting_value)
+VALUES (4, 'Setting 4', 'Value 4');
+
+-- Insert the fifth record
+INSERT INTO IssueSetting (issue_id, setting_name, setting_value)
+VALUES (5, 'Setting 5', 'Value 5');
 
 
 -- Insert sample records into the Milestones table

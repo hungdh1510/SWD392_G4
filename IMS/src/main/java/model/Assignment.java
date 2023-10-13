@@ -8,7 +8,7 @@ package model;
  *
  * @author trung
  */
-public class SubjectAssignment {
+public class Assignment {
      private int subjectId;
     private int classId;
 
@@ -28,12 +28,12 @@ public class SubjectAssignment {
         this.classId = classId;
     }
 
-    public SubjectAssignment(int subjectId, int classId) {
+    public Assignment(int subjectId, int classId) {
         this.subjectId = subjectId;
         this.classId = classId;
     }
 
-    public SubjectAssignment() {
+    public Assignment() {
     }
 
     
