@@ -1,38 +1,43 @@
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\SignoutServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\Project.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\Subject.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\dao\DBContext.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\ClassMilestone.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\Issue.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\HomeServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\UserAdminServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ChangePasswordServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\AddIssueServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\EditIssueServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ManageSystemServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\RegisterServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\UserManagerServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ViewIssueTrackingDashboardServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\dao\IssueDAO.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\IssueLink.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\SystemSetting.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\ClassMember.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ViewIssueDetailsServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\AboutUsServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ManageProjectServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\dao\UserDAO.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\Class.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\SubjectAssignment.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\User.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\UserTeacherServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ManageUserServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\Milestone.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ManageClassServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\UserStudentServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\LoginServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ViewIssueServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\test\test.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ViewUserProfileServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ViewProjectDashboardServlet.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\model\ProjectMember.java
-E:\Github-repo\SWD392_G4\IMS\src\main\java\controller\ManageSubjectServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Subject.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\test\test.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ManageUserServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\UserTeacherServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\ProjectMember.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Project.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\dao\IssueDAO.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\subject\AddAssignmentServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ViewProjectDashboardServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\subject\EditSubjectServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ChangePasswordServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\LoginServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ManageProjectServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\dao\UserDAO.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\SystemSetting.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\service\SubjectService.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\HomeServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Class.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ManageSystemServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\subject\AddSubjectServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\ClassMilestone.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ViewIssueServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\dao\SubjectDAO.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\AboutUsServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ViewUserProfileServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\UserStudentServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ManageClassServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ViewIssueTrackingDashboardServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\AddIssueServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\subject\ManageSubjectServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\RegisterServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Assignment.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Issue.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\SignoutServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\UserManagerServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\ClassMember.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\User.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\UserAdminServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\EditIssueServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\subject\ListAssignmentServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\controller\ViewIssueDetailsServlet.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\model\Milestone.java
+E:\Ky 7\SWD392\SWD392_G4\IMS\src\main\java\dao\DBContext.java

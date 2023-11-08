@@ -6,14 +6,26 @@ package model;
 
 /**
  *
- * @author trung
+ * @author hello
  */
 public class Subject {
-     private int subjectId;
-    private String subjectCode;
-    private String subjectName;
-    private String description;
-    private String gitlabConfig;
+    
+    public int subjectId;
+    public String subjectCode;
+    public String subjectName;
+    public String description;
+    public String gitlabConfig;
+
+    public Subject() {
+    }
+
+    public Subject(int subjectId, String subjectCode, String subjectName, String description, String gitlabConfig) {
+        this.subjectId = subjectId;
+        this.subjectCode = subjectCode;
+        this.subjectName = subjectName;
+        this.description = description;
+        this.gitlabConfig = gitlabConfig;
+    }
 
     public int getSubjectId() {
         return subjectId;
@@ -54,17 +66,6 @@ public class Subject {
     public void setGitlabConfig(String gitlabConfig) {
         this.gitlabConfig = gitlabConfig;
     }
-
-    public Subject(int subjectId, String subjectCode, String subjectName, String description, String gitlabConfig) {
-        this.subjectId = subjectId;
-        this.subjectCode = subjectCode;
-        this.subjectName = subjectName;
-        this.description = description;
-        this.gitlabConfig = gitlabConfig;
-    }
-
-    public Subject() {
-    }
-
+    
     
 }
